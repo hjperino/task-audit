@@ -54,7 +54,7 @@ type WebMcpDocument = Document & {
 };
 
 const emptyContext: AuditContext = {
-  level: 'Sekundarstufe II',
+  level: 'Gymnasium',
   setting: 'Unbeaufsichtigt',
   aiEnvironment: 'Unbekannt',
   subject: '',
@@ -66,10 +66,10 @@ const emptyContext: AuditContext = {
 };
 
 const photosynthesisExample: AuditContext = {
-  level: 'Sekundarstufe II',
+  level: 'Gymnasium',
   setting: 'Unbeaufsichtigt',
   aiEnvironment: 'Institutionell autorisierte KI',
-  subject: 'Biologie, Sekundarstufe II',
+  subject: 'Biologie, Gymnasium',
   outputFormat: 'Schriftliche Erklärung mit beschrifteter Skizze',
   learningGoals:
     'Die Lernenden erklären die Stoff- und Energieumwandlung bei der Photosynthese und übertragen das Modell auf veränderte Bedingungen.',
@@ -368,8 +368,8 @@ export default function Home() {
                     value={context.level}
                     onChange={(event) => updateContext('level', event.target.value)}
                   >
-                    <NativeSelectOption>Sekundarstufe II</NativeSelectOption>
-                    <NativeSelectOption>Berufsbildung</NativeSelectOption>
+                    <NativeSelectOption>Gymnasium</NativeSelectOption>
+                    <NativeSelectOption>Berufsschule</NativeSelectOption>
                     <NativeSelectOption>Hochschule</NativeSelectOption>
                   </NativeSelect>
                 </label>
