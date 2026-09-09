@@ -9,7 +9,7 @@ Eigenständige deutschsprachige Webseite für Lehrpersonen, die Aufgaben im Zeit
 ## Funktionsumfang
 
 - Kontext, Lernziel, erwartetes Produkt und Aufgabenstellung erfassen
-- vollständigen dreiphasigen Prüf-Prompt erzeugen
+- vollständigen dreiphasigen Prüf-Prompt ausdrücklich über «Prompt erzeugen» erstellen
 - Integritätsvalidität und kognitive Validität getrennt prüfen
 - Wahl zwischen Aufgaben ohne Lernenden-KI und pädagogisch begleiteter KI-Nutzung nach Phase 1
 - drei Umbauoptionen vergleichen und erst nach menschlicher Auswahl ausarbeiten

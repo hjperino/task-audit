@@ -15,6 +15,7 @@ const requiredText = [
   'Kognition',
   'François Jourde',
   'CC BY 4.0',
+  'Prompt erzeugen',
 ];
 
 for (const text of requiredText) {

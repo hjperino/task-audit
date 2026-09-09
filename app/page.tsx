@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { flushSync } from 'react-dom';
 import {
   ArrowRight,
@@ -61,19 +61,6 @@ const emptyContext: AuditContext = {
   outputFormat: '',
   learningGoals: '',
   assignment: '',
-  taxonomy: 'Keine Taxonomie',
-  responseLanguage: 'Deutsch (Schweiz)',
-};
-
-const photosynthesisExample: AuditContext = {
-  level: 'Gymnasium',
-  setting: 'Unbeaufsichtigt',
-  aiEnvironment: 'Institutionell autorisierte KI',
-  subject: 'Biologie, Gymnasium',
-  outputFormat: 'Schriftliche Erklärung mit beschrifteter Skizze',
-  learningGoals:
-    'Die Lernenden erklären die Stoff- und Energieumwandlung bei der Photosynthese und übertragen das Modell auf veränderte Bedingungen.',
-  assignment: 'Erkläre die Photosynthese.',
   taxonomy: 'Keine Taxonomie',
   responseLanguage: 'Deutsch (Schweiz)',
 };
@@ -219,7 +206,7 @@ Beginne jetzt mit Phase 1.`;
 export default function Home() {
   const [context, setContext] = useState<AuditContext>(emptyContext);
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'failed'>('idle');
-  const generatedPrompt = useMemo(() => buildAuditPrompt(context), [context]);
+  const [generatedPrompt, setGeneratedPrompt] = useState('');
 
   useEffect(() => {
     const modelContext = (document as WebMcpDocument).modelContext;
@@ -253,16 +240,18 @@ export default function Home() {
       execute(input) {
         const additions = parseAuditInput(input);
         const nextContext = { ...context, ...additions };
+        const nextPrompt = buildAuditPrompt(nextContext);
 
         flushSync(() => {
           setContext(nextContext);
+          setGeneratedPrompt(nextPrompt);
           setCopyState('idle');
         });
 
         return {
           status: 'created',
           updatedFields: Object.keys(additions),
-          prompt: buildAuditPrompt(nextContext),
+          prompt: nextPrompt,
         };
       },
     });
@@ -275,7 +264,10 @@ export default function Home() {
       inputSchema: { type: 'object', properties: {}, additionalProperties: false },
       annotations: { readOnlyHint: true, untrustedContentHint: true },
       execute() {
-        return { prompt: generatedPrompt };
+        return {
+          status: generatedPrompt ? 'created' : 'not_created',
+          prompt: generatedPrompt || null,
+        };
       },
     });
 
@@ -289,7 +281,20 @@ export default function Home() {
     setContext((current) => ({ ...current, [key]: value }));
   }
 
+  function generatePrompt() {
+    setGeneratedPrompt(buildAuditPrompt(context));
+    setCopyState('idle');
+  }
+
+  function clearForm() {
+    setContext(emptyContext);
+    setGeneratedPrompt('');
+    setCopyState('idle');
+  }
+
   async function copyPrompt() {
+    if (!generatedPrompt) return;
+
     try {
       await navigator.clipboard.writeText(generatedPrompt);
       setCopyState('copied');
@@ -481,20 +486,26 @@ export default function Home() {
             </fieldset>
 
             <div className="form-actions">
-              <Button
-                className="action-primary"
-                size="lg"
-                type="button"
-                onClick={() => setContext(photosynthesisExample)}
-              >
-                <Sparkles aria-hidden="true" /> Beispiel laden
-              </Button>
+              <div className="primary-action-group">
+                <Button
+                  className="action-primary"
+                  size="lg"
+                  type="button"
+                  onClick={generatePrompt}
+                >
+                  <Sparkles aria-hidden="true" /> Prompt erzeugen
+                </Button>
+                <p className="action-help">
+                  Beim Klicken auf diesen Button wird aus den Angaben oben ein
+                  spezifischer Prompt erzeugt.
+                </p>
+              </div>
               <Button
                 className="action-secondary"
                 variant="outline"
                 size="lg"
                 type="button"
-                onClick={() => setContext(emptyContext)}
+                onClick={clearForm}
               >
                 <RotateCcw aria-hidden="true" /> Felder leeren
               </Button>
@@ -512,6 +523,7 @@ export default function Home() {
                 size="lg"
                 type="button"
                 onClick={copyPrompt}
+                disabled={!generatedPrompt}
               >
                 {copyState === 'copied' ? <Check aria-hidden="true" /> : <Clipboard aria-hidden="true" />}
                 {copyState === 'copied'
@@ -521,7 +533,19 @@ export default function Home() {
                     : 'Prompt kopieren'}
               </Button>
             </div>
-            <pre>{generatedPrompt}</pre>
+            <div className="prompt-content" aria-live="polite">
+              {generatedPrompt ? (
+                <pre>{generatedPrompt}</pre>
+              ) : (
+                <div className="prompt-empty">
+                  <Sparkles aria-hidden="true" />
+                  <p>
+                    Fülle die Felder aus und klicke auf «Prompt erzeugen».
+                    Der fertige Prüf-Prompt erscheint hier.
+                  </p>
+                </div>
+              )}
+            </div>
             <p className="prompt-note">
               <ShieldCheck aria-hidden="true" /> Prüfe fachliche Vorschläge und
               institutionelle Vorgaben selbst. Der Prompt fällt kein Urteil an deiner Stelle.
