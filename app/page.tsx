@@ -618,15 +618,19 @@ export default function Home() {
           <a href="https://github.com/jourde/prompts/blob/main/docs/assessment-redesign/fr.md" target="_blank" rel="noreferrer">
             Französische Promptfassung <ArrowRight aria-hidden="true" />
           </a>
-          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license noreferrer">
             Lizenz CC BY 4.0 <ArrowRight aria-hidden="true" />
+          </a>
+          <a href="https://github.com/hjperino/task-audit/blob/main/LICENSE" target="_blank" rel="noreferrer">
+            Lizenzübersicht der Webseite <ArrowRight aria-hidden="true" />
           </a>
         </div>
         <p className="rights-note">
           «Assessment Redesign» und die Dokumentation stammen von François Jourde und
-          stehen unter CC BY 4.0. Diese deutschsprachige Adaption wurde gegenüber dem
-          Original gekürzt, neu strukturiert und um eine formularbasierte
-          Prompt-Erstellung ergänzt. Quelle: jourde/prompts.
+          stehen unter CC BY 4.0. Deutsche Adaption und Webumsetzung: Hansjuerg Perino,
+          2026, ebenfalls unter CC BY 4.0. Änderungen: Kürzung, neue Struktur und
+          Ergänzung einer formularbasierten Prompt-Erstellung. Der Programmcode steht
+          unter der MIT-Lizenz. Quelle: jourde/prompts.
         </p>
       </section>
 

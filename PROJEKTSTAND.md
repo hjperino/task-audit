@@ -29,6 +29,8 @@ François Jourde hat die Wiederverwendung und Adaption persönlich begrüsst. Im
 
 Die Webseite kennzeichnet François Jourde als Urheber des Ausgangsmaterials, verlinkt Quelle und Lizenz und beschreibt die vorgenommenen Änderungen: deutschsprachige Fassung, Kürzung, neue Struktur sowie formularbasierte Prompt-Erstellung.
 
+Die Lizenzierung ist nach Inhalt und Technik getrennt: Die eigenständigen Texte, Prompts, Erläuterungen und Bildungsinhalte der Adaption von Hansjuerg Perino stehen ebenfalls unter **CC BY 4.0**. Der von Hansjuerg Perino erstellte Programmcode steht unter der **MIT-Lizenz**. Inhalte und Abhängigkeiten Dritter behalten ihre jeweiligen Lizenzen.
+
 ## Technischer Stand
 
 - eigenständiges Vinext-Projekt im Ordner `assessment-redesign-web`
@@ -38,7 +40,7 @@ Die Webseite kennzeichnet François Jourde als Urheber des Ausgangsmaterials, ve
 - öffentliches GitHub-Repository: <https://github.com/hjperino/task-audit>
 - automatische Veröffentlichung der statischen Ausgabe über GitHub Pages eingerichtet
 - öffentliche Webseite: <https://hjperino.github.io/task-audit/>
-- die vom Repository-Inhaber gewählte CC0-Erklärung gilt nur für eigene Beiträge; von François Jourde abgeleitete Inhalte bleiben unter CC BY 4.0
+- klare Lizenzübersicht mit getrennten Dateien für Inhalte unter CC BY 4.0 und Programmcode unter MIT; Hinweise zu François Jourdes Ausgangsmaterial in `THIRD_PARTY_NOTICES.md`
 - Produktions-Build, statische Prüfung und Browser-Funktionstest unter dem GitHub-Unterpfad `/task-audit/` am 10. September 2026 bestanden
 - erster GitHub-Pages-Aufbau und Funktionstest der öffentlichen Webseite am 10. September 2026 erfolgreich abgeschlossen
 

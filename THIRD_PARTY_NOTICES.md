@@ -15,4 +15,6 @@ Vom Urheber vorgeschlagene Namensnennung:
 >
 > Source: https://github.com/jourde/prompts
 
-Die CC0-Erklärung in der Datei `LICENSE` erstreckt sich nicht auf Rechte Dritter. Die von «Assessment Redesign» abgeleiteten Inhalte bleiben unter den Bedingungen von CC BY 4.0 nutzbar.
+Die ursprünglichen und daraus übernommenen Inhalte bleiben François Jourde zugeordnet und unter den Bedingungen von CC BY 4.0 nutzbar. Die eigenständigen Texte und Ergänzungen der deutschsprachigen Adaption von Hansjuerg Perino stehen ebenfalls unter CC BY 4.0. Diese Lizenzierung verändert weder die Urheberschaft noch die Lizenz der Vorlage.
+
+Der Programmcode der Webanwendung ist davon getrennt und steht unter der MIT-Lizenz. Abhängigkeiten und weitere Bestandteile Dritter behalten ihre jeweiligen Lizenzen.

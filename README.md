@@ -50,6 +50,10 @@ Die vorliegende deutschsprachige Adaption wurde gekürzt, neu strukturiert und u
 
 ## Lizenz
 
-Die eigenständigen Beiträge dieses Repositories werden, soweit ihre Rechte bei den Beitragenden liegen, unter [CC0 1.0 Universal](LICENSE) bereitgestellt.
+Dieses Repository verwendet getrennte Lizenzen für Programmcode und Inhalte:
 
-Davon ausgenommen sind Inhalte Dritter. Insbesondere bleiben die von François Jourdes «Assessment Redesign» abgeleiteten Inhalte unter **CC BY 4.0**. Abhängigkeiten und weitere Bestandteile Dritter behalten ihre jeweiligen Lizenzen.
+- Der von Hansjuerg Perino erstellte Programmcode steht unter der [MIT-Lizenz](LICENSE-CODE.md).
+- Die von Hansjuerg Perino erstellten Texte, Prompts, Erläuterungen und sonstigen Bildungsinhalte stehen unter [Creative Commons Namensnennung 4.0 International](LICENSE-CONTENT.md).
+- Inhalte Dritter behalten ihre jeweiligen Lizenzen. Insbesondere bleiben die von François Jourdes «Assessment Redesign» übernommenen Inhalte unter **CC BY 4.0**. Einzelheiten stehen in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+Eine Übersicht über den Geltungsbereich der Lizenzen steht in der Datei [LICENSE](LICENSE).
