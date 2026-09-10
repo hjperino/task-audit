@@ -36,11 +36,12 @@ Die Webseite kennzeichnet François Jourde als Urheber des Ausgangsmaterials, ve
 - keine Datenbank, keine Anmeldung und keine externe KI-Schnittstelle
 - Eingaben bleiben im Browser und werden nicht gespeichert
 - öffentliches GitHub-Repository: <https://github.com/hjperino/task-audit>
-- automatische Veröffentlichung der statischen Ausgabe über GitHub Pages vorbereitet
+- automatische Veröffentlichung der statischen Ausgabe über GitHub Pages eingerichtet
+- öffentliche Webseite: <https://hjperino.github.io/task-audit/>
 - die vom Repository-Inhaber gewählte CC0-Erklärung gilt nur für eigene Beiträge; von François Jourde abgeleitete Inhalte bleiben unter CC BY 4.0
 - Produktions-Build, statische Prüfung und Browser-Funktionstest unter dem GitHub-Unterpfad `/task-audit/` am 10. September 2026 bestanden
+- erster GitHub-Pages-Aufbau und Funktionstest der öffentlichen Webseite am 10. September 2026 erfolgreich abgeschlossen
 
-## Offen bis zum Abschluss der GitHub-Veröffentlichung
+## Veröffentlichungsstand
 
-1. Vorbereiteten Stand zu GitHub übertragen.
-2. GitHub Pages aktivieren und die öffentliche Adresse im Browser prüfen.
+Der lokale Projektverlauf wurde mit dem vorhandenen GitHub-Startcommit zusammengeführt. Quellcode, Dokumentation und Veröffentlichungsablauf liegen im Repository. Jeder neue Commit auf `main` löst automatisch einen geprüften Neuaufbau der GitHub-Pages-Seite aus.

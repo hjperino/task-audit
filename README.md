@@ -17,7 +17,7 @@ Alle Eingaben bleiben im Browser. Die Seite überträgt oder speichert keine ein
 
 ## Webseite
 
-Nach der Aktivierung von GitHub Pages ist die öffentliche Fassung unter <https://hjperino.github.io/task-audit/> erreichbar.
+Die öffentliche Fassung ist unter <https://hjperino.github.io/task-audit/> erreichbar.
 
 ## Lokale Verwendung
 
