@@ -1,0 +1,57 @@
+name: Aufgaben-Audit auf GitHub Pages veröffentlichen
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v7
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Statische Webseite erzeugen
+        run: npm run build
+
+      - name: Statische Webseite prüfen
+        run: npm run validate
+
+      - name: Jekyll-Verarbeitung deaktivieren
+        run: touch dist/client/.nojekyll
+
+      - name: GitHub Pages einrichten
+        uses: actions/configure-pages@v5
+
+      - name: Webseite als Pages-Artefakt bereitstellen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/client
+
+      - name: Webseite veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v5
